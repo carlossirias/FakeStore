@@ -5,16 +5,16 @@ import { Button } from "@nextui-org/react";
 export function Cart() {
     const { cart, resolveQuantityElement, updateQuantityElement, hasCart } = useCart()
     return (
-        <div className="w-full flex flex-col gap-2">
+        <div className="w-full flex flex-col gap-2 h-96 overflow-y-scroll">
             {
                 hasCart ? cart?.map(product =>
-                    <div key={product.id} className="p-5 flex flex-wrap place-content-between rounded-lg">
+                    <div key={product.id} className="p-5  flex flex-wrap place-content-between rounded-lg">
                         <div className="flex items-center gap-4 max-sm:place-content-between">
                             <div className="w-[70px] flex justify-center">
                                 <img src={product.image} className="h-10" height={'12px'} alt="" />
                             </div>
                             <div className="flex flex-col">
-                                <span className="font-semibold text-gray-900 truncate max-sm:max-w-[150px]">{product.title}</span>
+                                <span className="font-semibold text-gray-900 truncate max-w-[300px] max-sm:max-w-[150px]">{product.title}</span>
                                 <span className="text-gray-500">${product.price}</span>
                             </div>
                         </div>
