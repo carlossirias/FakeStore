@@ -1,16 +1,15 @@
 /* eslint-disable no-undef */
 import { Select, SelectItem } from "@nextui-org/react";
-import { useContext, useState } from "react";
+import { useContext} from "react";
 import { FiltersProducts } from "../context/FiltersContext";
 
 // eslint-disable-next-line react/prop-types
 export function Filters({maxPrice}) {
-    const [minPrice, serMinPrice] = useState(0)
+
     const {filter, setFilters} = useContext(FiltersProducts)
 
     const handleChangeRange = (event)=>
     {
-        serMinPrice(event.target.value)
         setFilters({
             ...filter,
             min: event.target.value,
@@ -24,15 +23,15 @@ export function Filters({maxPrice}) {
         })
     }
     return (
-        <div className="flex items-end mt-6 justify-end h-24">
+        <div className="flex md:items-end mt-6 md:justify-end max-sm:w-full h-24">
 
-            <div className="flex flex-col gap-3 text-gray-900">
+            <div className="flex flex-col gap-3 max-sm:w-full text-gray-900">
                 <div>
                     <Select
                         labelPlacement="outside"
                         label="Category:"
                         color="primary"
-                        className="w-72"
+                        className="w-72 max-sm:w-full"
                         defaultSelectedKeys={["all"]}
                         onChange={handleChangeSelect}
                     >
@@ -62,8 +61,8 @@ export function Filters({maxPrice}) {
                     </Select>
                 </div>
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="" className="text-sm text-[#4CB5AE] font-semibold">Price from: $<span>{minPrice}</span></label>
-                    <input type="range" value={minPrice} onChange={handleChangeRange} className="bg-gray-200 shadow rounded-lg appearance-none cursor-pointer" name="" min={0} max={maxPrice} id="range__input" />
+                    <label htmlFor="" className="text-sm text-[#4CB5AE] font-semibold">Price from: $<span>{filter.min}</span></label>
+                    <input type="range" value={filter.min} onChange={handleChangeRange} className="bg-gray-200 shadow rounded-lg appearance-none cursor-pointer" name="" min={0} max={maxPrice} id="range__input" />
                 </div>
             </div>
         </div>

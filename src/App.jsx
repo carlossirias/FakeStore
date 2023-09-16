@@ -3,6 +3,7 @@ import { Products } from './components/Products'
 import { Filters } from './components/Filters'
 import { FiltersProducts } from './context/FiltersContext'
 import {Footer} from './components/FooterCarlos'
+import { NavbarShop } from './components/Navbar'
 
 const API_URL = 'https://fakestoreapi.com/products'
 
@@ -36,6 +37,7 @@ function App() {
 
   return (
     <>
+    <NavbarShop className='verdi-gris'></NavbarShop>
       <main className="w-full h-full min-h-screen verdi-gris flex flex-col items-center bg-gray-50">
         
         <Products products={productsRes} >

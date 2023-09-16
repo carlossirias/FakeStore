@@ -1,5 +1,4 @@
-import { color } from "framer-motion"
-
+/* eslint-disable react/prop-types */
 // eslint-disable-next-line react/prop-types
 export function Footer({colorText, colorHover, isBlack = true})
 {

@@ -17,7 +17,7 @@ export default {
       "verdi-gris": {
         
         colors: {
-          background: "#0D001A",
+          background: "#fff",
           foreground: "#ffffff",
           primary: {
             50: "#fff",
