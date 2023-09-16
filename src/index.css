@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.products__container
+{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+input[type='range']::-webkit-slider-thumb {
+  width: 12px;
+  -webkit-appearance: none;
+  height: 12px;
+  border-radius: 50%;
+  background: #4CB5AE;
+}
+
+input[type='range']::-webkit-slider-thumb:hover{
+  background-color: #429f98;
+}
