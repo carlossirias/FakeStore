@@ -1,9 +1,12 @@
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Button } from "@nextui-org/react";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
 import { CartIcon } from "./Icons";
+import { Cart } from "./Cart";
+import { useCart } from "../hocks/useCart";
 
 export function NavbarShop() {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
+    const {cart, hasCart} = useCart()
 
     return (
 
@@ -14,40 +17,24 @@ export function NavbarShop() {
             <NavbarContent justify="end">
 
                 <NavbarItem>
-                    <Button onPress={onOpen} isIconOnly color="primary" variant="bordered" aria-label="Like">
-                        <CartIcon fill={'#4CB5AE'}></CartIcon>
+                    <Button onPress={onOpen} color="primary" variant="bordered" aria-label="Like">
+                        <div className="flex items-center">
+                            <CartIcon fill={'#4CB5AE'}></CartIcon>
+                            {hasCart && <span className="text-[#4CB5AE] font-semibold text-lg">({cart.length})</span>}
+                        </div>
                     </Button>
 
-                    <Modal isOpen={isOpen}  onOpenChange={onOpenChange}>
+                    <Modal isOpen={isOpen} size="4xl" className="verdi-gris"  onOpenChange={onOpenChange}>
                         <ModalContent>
                             {(onClose) => (
                                 <>
-                                    <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader>
+                                    <ModalHeader className="flex flex-col gap-1"><span className="text-2xl flex items-center gap-2 font-bold">Cart <span className="text-[#4CB5AE]">({cart.length})</span></span></ModalHeader>
                                     <ModalBody>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nullam pulvinar risus non risus hendrerit venenatis.
-                                            Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                                        </p>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nullam pulvinar risus non risus hendrerit venenatis.
-                                            Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                                        </p>
-                                        <p>
-                                            Magna exercitation reprehenderit magna aute tempor cupidatat consequat elit
-                                            dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis.
-                                            Velit duis sit officia eiusmod Lorem aliqua enim laboris do dolor eiusmod.
-                                            Et mollit incididunt nisi consectetur esse laborum eiusmod pariatur
-                                            proident Lorem eiusmod et. Culpa deserunt nostrud ad veniam.
-                                        </p>
+                                        <Cart></Cart>
                                     </ModalBody>
                                     <ModalFooter>
                                         <Button color="danger" variant="light" onPress={onClose}>
                                             Close
-                                        </Button>
-                                        <Button color="primary" onPress={onClose}>
-                                            Action
                                         </Button>
                                     </ModalFooter>
                                 </>

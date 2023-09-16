@@ -1,10 +1,14 @@
 import { Button } from "@nextui-org/react";
 import { CartIcon } from "./Icons";
+import { useCart } from "../hocks/useCart";
+
 
 
 
 // eslint-disable-next-line react/prop-types
 export function Products({ children, products }) {
+    const {addCart} = useCart()
+
     return (
         <section className="w-full p-5 md:max-w-[1200px] flex flex-col gap-10">
             <header className="flex place-content-between flex-wrap">
@@ -26,7 +30,7 @@ export function Products({ children, products }) {
                         </div>
 
                         <div className="flex flex-col gap-2">
-                            <Button className="w-full" color={"primary"} radius="sm" startContent={<CartIcon fill={"#fff"} />}>Add to cart</Button>
+                            <Button className="w-full" color={"primary"} onClick={() => {addCart(product)}} radius="sm" startContent={<CartIcon fill={"#fff"} />}>Add to cart</Button>
                             <Button className="w-full" color={"primary"} variant="bordered" radius="sm" >View more</Button>
                         </div>
                     </div>

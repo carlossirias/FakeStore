@@ -3,7 +3,6 @@
 export function Footer({colorText, colorHover, isBlack = true})
 {
     const themeClass = isBlack ? '950' : '200'
-    console.log(themeClass)
 
     return(
         <footer className={`fixed z-10 pr-5 flex max-sm:self-center bg-gray-${themeClass}/50 bottom-2 md:left-2 p-3 rounded-full overflow-hidden  backdrop-blur-xl`}>
