@@ -10,7 +10,7 @@ export function Cart() {
                 hasCart ? cart?.map(product =>
                     <div key={product.id} className="p-5 flex flex-wrap place-content-between rounded-lg">
                         <div className="flex items-center gap-4 max-sm:place-content-between">
-                            <div className="min-w-[40px]">
+                            <div className="w-[70px] flex justify-center">
                                 <img src={product.image} className="h-10" height={'12px'} alt="" />
                             </div>
                             <div className="flex flex-col">
