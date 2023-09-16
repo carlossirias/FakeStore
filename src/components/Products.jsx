@@ -10,7 +10,7 @@ export function Products({ children, products }) {
     const {addCart} = useCart()
 
     return (
-        <section className="w-full p-5 md:max-w-[1200px] flex flex-col gap-10">
+        <section className="w-full p-5 md:max-w-[1200px] max-sm:mb-20 flex flex-col gap-10">
             <header className="flex place-content-between flex-wrap">
                 <h1 className="text-left max-xl:text-4xl text-5xl font-black text-[#4CB5AE]">Products</h1>
                 <div className="max-sm:mt-5 max-sm:w-full">
