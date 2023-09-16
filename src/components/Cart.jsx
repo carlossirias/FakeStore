@@ -14,7 +14,7 @@ export function Cart() {
                                 <img src={product.image} className="h-10" height={'12px'} alt="" />
                             </div>
                             <div className="flex flex-col">
-                                <span className="font-semibold text-gray-900">{product.title}</span>
+                                <span className="font-semibold text-gray-900 truncate max-sm:max-w-[150px]">{product.title}</span>
                                 <span className="text-gray-500">${product.price}</span>
                             </div>
                         </div>
