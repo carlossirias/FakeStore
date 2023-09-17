@@ -22,6 +22,7 @@ export function Filters({maxPrice}) {
             category: event.target.value,
         })
     }
+
     return (
         <div className="flex md:items-end mt-6 md:justify-end max-sm:w-full h-24">
 
